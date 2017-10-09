@@ -1,0 +1,30 @@
+.invalid {
+	background-color: #FFB7B7;
+}
+.missing-start {
+	background-color: #C1FFC1;
+}
+.missing-end {
+	background-color: #B2C6E2;
+}
+.subtitle {
+	margin: 1% 1%; 
+	border: 1px solid black; 
+	float:left; 
+	width: 22%; 
+	text-align: center;
+	color: white;
+	border-radius: 50px;
+}
+.a-ok {
+	background-color: lightblue;
+}
+.a-not-ok {
+	background-color: blue !important;
+}
+.b-ok {
+	background-color: tomato;
+}
+.b-not-ok {
+	background-color: darkred !important;
+}

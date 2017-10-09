@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="styles.css">	
+	</head>
+	<body class="contanier" ng-app="app">
+		<div ng-controller="SimuladorController">			
+			<div class="well">
+				<h1 style="text-align: center; color: blue; margin-bottom: 25px;">
+					Simulador
+				</h1>				
+				<h2 style="text-align: center; color: blue;">
+					Dados:
+				</h2>
+				<h3 style="text-align: center;">
+					<p style="font-size: 16px;">TOTAL</p>
+					<p>{{values.total}}</p>
+				</h3>
+				<div style="margin-top: 15px; ">
+					<div class="subtitle a-ok">
+						<p style="font-size: 16px;">A</p>
+						<p>Total: {{values.totalA}}</p>
+					</div>
+					<div class="subtitle a-not-ok">
+						<p style="font-size: 16px;">A com Erro</p>
+						<p>Total: {{values.totalAErro}}</p>
+					</div>
+					<div class="subtitle b-ok">
+						<p style="font-size: 16px;">B</p>
+						<p>Total: {{values.totalB}}</p>
+					</div>
+					<div class="subtitle b-not-ok">
+						<p style="font-size: 16px;">B com Erro</p>
+						<p>Total: {{values.totalBErro}}</p>
+					</div>
+				</div>
+				<div style="margin: 1% 1%">
+					<input type="number" name="events" ng-model="values.total" step="1">
+					<button ng-click="sendEvents()">ENVIAR</button>				
+				</div>
+				<div style="margin: 1% 1%">
+				</div>
+				<div>
+
+					<div ng-repeat="event in events" style="clear:both; text-align: center; border: black solid;  border-radius: 50px; margin-bottom: 5px; margin-top: 5px; color: white;" 
+					ng-class="{'a-ok': event.event.payloadData.value == 'A', 'b-ok': event.event.payloadData.value == 'B', 'a-not-ok': !event.valid && event.event.payloadData.value == 'A', 'b-not-ok': !event.valid && event.event.payloadData.value == 'B'}">											
+						<h4>Evento tipo: {{event.event.payloadData.value}}</h4>
+						<p>Evento In??cio: {{event.startTimestamp | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+						<p ng-show="event.valid">Evento Fim: {{event.endTimestamp | date:'yyyy-MM-dd HH:mm:ss'}}</p>	
+					</div>
+				</div>
+			</div>	
+		</div>		
+		<script src="angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="simulador.js"></script>		
+		<script src="angular-resource.js"></script>
+	</body>
+</html>

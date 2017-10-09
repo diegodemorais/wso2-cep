@@ -1,0 +1,37 @@
+Além disso, gostaria que você começa-se a estudar o WSO2 - CEP.
+
+Vou te passar um cenário e gostaria que você tenta-se fazer, pra quebrar um pouco a cabeça.
+
+Caso tenha dúvidas ou trave em alguma parte, me avise.
+
+ 
+
+Instalação do WSO2 - CEP: https://docs.wso2.com/display/CEP410/Installing+the+Product
+
+O WSO2 - CEP na verdade não é instalado, você só precisa descompactar ele e subir.
+
+ 
+
+Aqui tem um link para alguns exemplos e tutorias oficiais: https://docs.wso2.com/display/CEP410/WSO2+CEP+Samples
+
+Eles são bem bons e podem te ajudar bastante. Atenção especial ao item https://docs.wso2.com/display/CEP410/Sample+0111+-+Detecting+non-occurrences+with+Patterns  que com certeza você vai precisar usar. XD
+
+ 
+
+O cenário é o seguinte:
+
+1.       O Fluxo funcionará assim:          
+
+a.       Receberá um JSON: {id: ID, type:’INICIO’, value: VALOR} sendo que VALOR pode ser “A” ou “B” e ID será um integer único para cada JSON.
+
+b.      Depois de um intervalor de 1 a 5 segundos, receberá um outro JSON: {{id: ID, type:’FIM’, value:VALOR}
+
+c.       Porém, O SIMULADOR PODERÁ NÃO ENVIAR O JSON DE FIM.
+
+d.      O fluxo deverá somar o total de mensagens A e o total de mensagens B, bem como o total de A que não tiveram FIM e o total de B que não tiveram FIM.
+
+e.      O fluxo deverá publicar  no console o seguinte JSON: {total_A: x, total_B: y, A_incompletos: z, B_incompletos: w}
+
+ 
+
+Vou lhe enviar um simulador em JS que envia os JSONs de entrada, assim você só precisa se preocupar com a parte do WSO2-CEP
